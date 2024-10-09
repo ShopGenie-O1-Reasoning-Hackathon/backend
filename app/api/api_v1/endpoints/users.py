@@ -54,7 +54,8 @@ async def create_user(*, db: Session = Depends(deps.get_db), user_in: UserCreate
         db_user = UserModel(
             id=user_in.id, 
             name = user_in.name,
-            email = user_in.email
+            email = user_in.email,
+            gender = user_in.gender
         )
         db.add(db_user)
         db.commit()

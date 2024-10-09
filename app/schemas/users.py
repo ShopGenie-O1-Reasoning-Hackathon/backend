@@ -7,18 +7,19 @@ class UserCreate(BaseModel):
     id: uuid.UUID
     name: str
     email: str
+    gender: str
     
 class UserUpdate(BaseModel):
     name: Optional[str] = None
-    address: Optional[str] = None
-    country: Optional[str] = None
+    gender: Optional[str] = None
+    city: Optional[str] = None
     occupation: Optional[str] = None
 
     
 class User(BaseModel):
     id: uuid.UUID
     name: str
-    address: str
-    country: str
+    gender: str
+    city: str
     occupation: str
     email: str
