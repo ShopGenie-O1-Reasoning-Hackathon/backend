@@ -9,8 +9,8 @@ class User(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String, nullable=False)
-    address = Column(String, nullable=True, default='N/A')
-    country = Column(String, nullable=True, default='N/A')
+    gender = Column(String, nullable=True, default='N/A')
+    city = Column(String, nullable=True, default='N/A')
     occupation = Column(String, nullable=True, default='N/A')
     email = Column(String, nullable=False, unique=True)
 
