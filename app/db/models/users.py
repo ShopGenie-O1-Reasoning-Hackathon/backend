@@ -14,3 +14,5 @@ class User(Base):
     occupation = Column(String, nullable=True, default='N/A')
     email = Column(String, nullable=False, unique=True)
 
+    favourites = relationship('Cart', back_populates='uploader')
+

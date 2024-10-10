@@ -36,3 +36,7 @@ class ProductRetrieveMultipleResponseSchema(BaseModel):
 
 class ProductSimilarMultipleResponseSchema(BaseModel):
     products: List[ProductSchema]
+
+class cart(BaseModel):
+    products: List[ProductSchema]
+    similars: List[ProductSchema]
