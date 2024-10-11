@@ -10,4 +10,3 @@ api_router_v1.include_router(sentiment_analysis.router, prefix="/sentiment_analy
 api_router_v1.include_router(carts.router, prefix="/cart", tags=["cart"])
 api_router_v1.include_router(reviews.router, prefix="/reviews", tags=["reviews"])
 api_router_v1.include_router(clicks.router, prefix="/clicks", tags=["clicks"])
-```
