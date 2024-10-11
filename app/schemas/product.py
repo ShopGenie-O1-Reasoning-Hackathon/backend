@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 from uuid import UUID
 
+
 class CategoryRequestSchema(BaseModel):
     category: str
     sub_category: str
@@ -40,3 +41,8 @@ class ProductSimilarMultipleResponseSchema(BaseModel):
 class cart(BaseModel):
     products: List[ProductSchema]
     similars: List[ProductSchema]
+
+class CartRemoveRequestSchema(BaseModel):
+    productId: UUID
+    userId: UUID
+    
