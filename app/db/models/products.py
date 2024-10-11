@@ -11,8 +11,9 @@ class Product(Base):
     id = Column(PG_UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     link = Column(String, nullable=False)
     name = Column(String, nullable=False)
-    gender = Column(String, nullable=False)
+    gender = Column(String, nullabale=False)
     category = Column(String, nullable=False)
     company = Column(String, nullable=False)
 
     reviews = relationship('Review', back_populates='for_product')
+    clicks = relationship('Click', back_populates='click_records')

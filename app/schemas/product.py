@@ -45,4 +45,8 @@ class cart(BaseModel):
 class CartRemoveRequestSchema(BaseModel):
     productId: str
     userId: str
+
+class insertClick(BaseModel):
+    productId: str
+    userId: str
     
