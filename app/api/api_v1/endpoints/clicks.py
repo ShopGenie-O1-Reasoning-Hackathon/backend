@@ -18,7 +18,8 @@ import random
 ####################################################
 #  Insert Click for a product
 ####################################################
-def insert_click(click: insertClick, db: Session = Depends(deps.get_db)):
+@router.post("/", status_code=status.HTTP_201_CREATED)
+async def insert_click(click: insertClick, db: Session = Depends(deps.get_db)):
     """
     Insert a click record for a product by a user.
     Ensures that each (product_id, user_id) pair is unique.

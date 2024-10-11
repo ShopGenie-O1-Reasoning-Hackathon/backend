@@ -11,7 +11,7 @@ class Product(Base):
     id = Column(PG_UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     link = Column(String, nullable=False)
     name = Column(String, nullable=False)
-    gender = Column(String, nullabale=False)
+    gender = Column(String, nullable=False)
     category = Column(String, nullable=False)
     company = Column(String, nullable=False)
 
