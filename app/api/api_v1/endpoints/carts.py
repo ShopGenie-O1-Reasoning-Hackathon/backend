@@ -39,8 +39,10 @@ async def get_cart_products(user_id: uuid.UUID, db: Session = Depends(deps.get_d
         similar_products_set = set()  # To ensure no duplication
 
         for product_id in product_ids:
-            similar_products = await retrieve_similar_products(product_id, limit=5)
+            similar_products = await retrieve_similar_products(product_id, limit=10)
             for product in similar_products:
+                if product["product_id"] in product_ids:
+                    continue
                 product_tuple = tuple((key, tuple(value) if isinstance(value, list) else value) for key, value in product.items())
                 similar_products_set.add(product_tuple)  
 
