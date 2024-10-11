@@ -43,6 +43,6 @@ class cart(BaseModel):
     similars: List[ProductSchema]
 
 class CartRemoveRequestSchema(BaseModel):
-    productId: UUID
-    userId: UUID
+    productId: str
+    userId: str
     

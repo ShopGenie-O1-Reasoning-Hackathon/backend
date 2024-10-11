@@ -68,8 +68,8 @@ async def remove_cart_product(cart_remove_data: CartRemoveRequestSchema, db: Ses
        
         db_cart = (
             db.query(CartModel)
-            .filter(CartModel.user_id == cart_remove_data.userId)
-            .filter(CartModel.product_id == cart_remove_data.productId)
+            .filter(CartModel.user_id == uuid.UUID(cart_remove_data.userId))
+            .filter(CartModel.product_id == uuid.UUID(cart_remove_data.productId))
             .first()
         )
 
@@ -92,8 +92,8 @@ async def add_cart_product(cart_add_data: CartRemoveRequestSchema, db: Session =
         
         existing_cart = (
             db.query(CartModel)
-            .filter(CartModel.user_id == cart_add_data.userId)
-            .filter(CartModel.product_id == cart_add_data.productId)
+            .filter(CartModel.user_id == uuid.UUID(cart_add_data.userId))
+            .filter(CartModel.product_id == uuid.UUID(cart_add_data.productId))
             .first()
         )
 
@@ -102,8 +102,8 @@ async def add_cart_product(cart_add_data: CartRemoveRequestSchema, db: Session =
 
         # Create a new Cart entry
         new_cart = CartModel(
-            user_id=cart_add_data.userId,
-            product_id=cart_add_data.productId
+            user_id=uuid.UUID(cart_add_data.userId),
+            product_id=uuid.UUID(cart_add_data.productId)
         )
 
         # Add the new cart entry to the session and commit
@@ -124,8 +124,8 @@ async def check_cart_product(cart_check_data: CartRemoveRequestSchema, db: Sessi
         # Check if the Cart entry exists for the user and product
         existing_cart = (
             db.query(CartModel)
-            .filter(CartModel.user_id == cart_check_data.userId)
-            .filter(CartModel.product_id == cart_check_data.productId)
+            .filter(CartModel.user_id == uuid.UUID(cart_check_data.userId))
+            .filter(CartModel.product_id == uuid.UUID(cart_check_data.productId))
             .first()
         )
 
